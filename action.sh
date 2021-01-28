@@ -10,6 +10,8 @@ if [ -n "${EXTRA_PACKAGES}" ]; then
     apk add --no-cache ${EXTRA_PACKAGES}
 fi
 
+${POST_INSTALL}
+
 if [ -n "${REQUIREMENTS}" ] && [ -f "${GITHUB_WORKSPACE}/${REQUIREMENTS}" ]; then
     pip install -r "${GITHUB_WORKSPACE}/${REQUIREMENTS}"
 else
